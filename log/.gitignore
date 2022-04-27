@@ -1,3 +1,2 @@
-*.sw*
-__pycache__/
-nohup*
+*
+!.gitignore
