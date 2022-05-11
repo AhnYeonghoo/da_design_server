@@ -47,4 +47,23 @@ def api_list():
     logger.info('< API:list with {}'.format(ret))
     return ret
 
+@app.route('/api-predict', methods=["POST"])
+def api_predict():
+    company_name = request.json.get('company_name')
+    logger.info('> API:predict with {}'.format(company_name))
+
+    ret = {"result": None, "msg": ""}
+    if company_name:
+        result = db.get_predicted_company_stock(company_name, logger)
+        if result:
+            ret["result"] = result
+            ret['msg'] = company_name
+        else:
+            ret['msg'] = '결과값 생성에 실패하였습니다.'
+    else:
+        ret['msg'] = 'company_name 값이 주어져있지 않습니다.'
+
+    logger.info('< API:list with {}'.format(ret))
+    return ret
+
 
