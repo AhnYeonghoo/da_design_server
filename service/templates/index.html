@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+        <meta charset="UTF-8">
+        <title>da_design_server(학번)</title>
+</head>
+<body>
+        <div class='page-header'>
+                <h3>Menu bar</h3>
+                <div class='Menu-bar'>
+                        <ul class='menu-bar'>
+                                <li><a href="{{url_for('web_main')}}">Main</a></li>
+                                <li><a href="{{url_for('web_help')}}">Help</a></li>
+                        </ul>
+                </div>
+                <hr/>
+        </div>
+        <div class='content container'>
+                {% block content %}
+                <b>성공적인 메인 페이지!</b>
+                {% endblock %}
+        </div>
+</body>
+</html>
+
